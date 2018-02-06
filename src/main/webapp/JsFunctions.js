@@ -1,21 +1,10 @@
-function jsAdRespondAdd(element) {
-    // alert(element.id);
-    // console.log(element.id);
-    // if (element.id =='respondAd') {
+// function jsAdRespondAdd(element) {
+//     var xhttp = new XMLHttpRequest();
+//     xhttp.open("POST", "MakeAdRespond", true);
+//     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//     xhttp.send("AdId=" + element.id);
+// }
 
-    // alert('hello!22!!');
-    // location.href = "/BulletinBoard";
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "MakeAdRespond", true);
-    // xhttp.open('GET', 'MakeAdRespond', false);
-    // xhttp.send();
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("AdId=" + element.id);
-    // xhttp.send("fname=Henry&lname=Ford");
-    // alert(element.id);
-    // element.disabled;
-    // }
-}
 
 function jsShowResponds(element) {
     var xhttp = new XMLHttpRequest();
@@ -68,6 +57,7 @@ function jsShowResponds(element) {
     // alert("readyState"+xhttp.readyState);
 }
 
+//Разворот спойлера
 $(document).on('click', '.spoiler-trigger', function (e) {
     e.preventDefault();
     $(this).toggleClass('active');
@@ -79,4 +69,13 @@ $(document).on('click', '.spoiler-trigger', function (e) {
         .slideToggle(300);
 
     console.log("DEBUG: "+this.parent());
+});
+
+//show id
+$(document).ready(function(){
+    $(".b-button_right_").click(function(){
+        //добавляет отклик по ID обьявления
+        $.post( "MakeAdRespond", { AdId: $(this).closest("div.b_ad").prop("id")} );
+        alert("id : " + $(this).closest("div.b_ad").prop("id"));
+    });
 });

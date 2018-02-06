@@ -87,31 +87,45 @@
             <p><input type="reset" value="Очистить"></p>
             <p><input type="submit" value="Отправить"></p>
         </form>
+<%--examples------------------------------------------------------------%>
+        <%--<div class="b_ad">--%>
+            <%--<div class="b_ad_right_side">--%>
+                <%--<p><a href="https://worldoftanks.ru/ru/community/accounts/$$$ACC_ID-$$$NICKNAME/">$$$NICKNAME</a></p>--%>
+            <%--</div>--%>
+            <%--<div class="b_ad_left_side">--%>
+                <%--<div class="b_ad_text">--%>
+                    <%--<p>$$$TEXT_MESS--%>
+                    <%--</p>--%>
+                <%--</div>--%>
+                <%--<div class="b_ad_time_cr" style="float: right">--%>
+                    <%--<p>$$$TIME_AGO</p>--%>
+                <%--</div>--%>
+                <%--<button class="b-button_right_" id="30" onclick="jsAdRespondAdd(this)">+Кнопка с рисунком</button>--%>
+                <%--<span class="real-show-hint"--%>
+                      <%--style="cursor: pointer;  border-bottom: dashed 1px;"--%>
+                      <%--onclick="jsShowResponds(this)"--%>
+                      <%--id="30">--%>
+                    <%--Отклики--%>
+                <%--</span>--%>
+            <%--</div>--%>
+        <%--</div>--%>
 
-        <div class="b_ad">
+        <div class="b_ad" id="30">
             <div class="b_ad_right_side">
                 <p><a href="https://worldoftanks.ru/ru/community/accounts/$$$ACC_ID-$$$NICKNAME/">$$$NICKNAME</a></p>
             </div>
             <div class="b_ad_left_side">
                 <div class="b_ad_text">
-                    <p>$$$TEXT_MESS
-                    </p>
+                    <p>$$$TEXT_MESS </p>
                 </div>
                 <div class="b_ad_time_cr" style="float: right">
                     <p>$$$TIME_AGO</p>
                 </div>
-                <%--<div class="b-button_right">--%>
-                <%--<span id="30" onclick = "jsAdRespondAdd(this)"   class="b-button-txt">ОТКЛИК</span>--%>
-                <%--</div>--%>
-                <button class="b-button_right_" id="30" onclick="jsAdRespondAdd(this)">+Кнопка с рисунком</button>
-                <span class="real-show-hint"
-                      style="cursor: pointer;  border-bottom: dashed 1px;"
-                      onclick="jsShowResponds(this)"
-                      id="30">
-                    Отклики
-                </span>
+                <button class="b-button_right_" >Откликнуться</button>
+                <span class="real-show-hint" style="cursor: pointer;  border-bottom: dashed 1px;">Resps</span>
             </div>
         </div>
+        <%--examples end------------------------------------------------------------%>
 
         <div class="b_ad">
             <a href="#" class="spoiler-trigger"><span>Развернуть спойлер</span></a>
@@ -131,13 +145,7 @@
                         , adList.get(i + 4)
                         , adList.get(i + 5)
                 ));
-//                        account_id,nickname,to_char(cr_date,'dd/mm/yyyy hh24:mi:ss'),text,tags
-//                        inc++;
-//                        out.println("<td>" + adList.get(i) + "</td>");
-//                        if (inc % 4 == 0 && i != 0)
-//                            out.println("</tr><tr>");
             }
-//                    out.println("</tr>");
         } else {
             out.println("Доска пока пуста...");
         }

@@ -68,8 +68,6 @@ public class MakeAdRespondServlet extends HttpServlet {
         int responseCode = con.getResponseCode();
 
         try {
-
-
             InputStream fis = con.getInputStream();
             JsonReader jsonReader = Json.createReader(fis);
             JsonObject jsonObject = jsonReader.readObject();
