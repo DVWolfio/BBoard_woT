@@ -95,6 +95,14 @@ public class MakeAdRespondServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+        //вернем ответ для всплывалки, что все успешно
+        PrintWriter outStream = resp.getWriter();
+        resp.setContentType("text/html");
+        outStream.write("Respond Sucessful");// FIXME: 07.02.2018 Кодировку для кирилицы
+
+        outStream.flush();
+        outStream.close();
+
 
     }
 

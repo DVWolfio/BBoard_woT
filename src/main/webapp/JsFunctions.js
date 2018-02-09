@@ -68,14 +68,25 @@ $(document).on('click', '.spoiler-trigger', function (e) {
         .html("SomeText")
         .slideToggle(300);
 
-    console.log("DEBUG: "+this.parent());
+    console.log("DEBUG: " + this.parent());
 });
 
 //show id
-$(document).ready(function(){
-    $(".b-button_right_").click(function(){
+$(document).ready(function () {
+    $(".b-button_right_").click(function () {
         //добавляет отклик по ID обьявления
-        $.post( "MakeAdRespond", { AdId: $(this).closest("div.b_ad").prop("id")} );
-        alert("id : " + $(this).closest("div.b_ad").prop("id"));
+        $.post("MakeAdRespond"
+            , {AdId: $(this).closest("div.b_ad").prop("id")}
+            // , function (data) {
+            //     alert(data)
+            // }
+        ,function (data) {
+            var w = window.open('about:blank');
+            w.document.open();
+            w.document.write(data);
+            w.document.close();
+        }
+        );
+        // alert("id : " + $(this).closest("div.b_ad").prop("id"));
     });
 });
