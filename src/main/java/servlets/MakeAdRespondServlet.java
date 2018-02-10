@@ -104,6 +104,7 @@ public class MakeAdRespondServlet extends HttpServlet {
         outStream.close();
 
 
+
     }
 
 

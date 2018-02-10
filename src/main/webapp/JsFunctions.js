@@ -85,6 +85,7 @@ $(document).ready(function () {
             w.document.open();
             w.document.write(data);
             w.document.close();
+
         }
         );
         // alert("id : " + $(this).closest("div.b_ad").prop("id"));
