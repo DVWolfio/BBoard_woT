@@ -32,7 +32,7 @@ public class MakeAdRespondServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        super.doPost(req, resp);
-        System.out.println("MakeAdRespond_POST");
+        System.out.println("-----------[MakeAdRespond_POST]-----------");
 //        resp.sendRedirect("/BulletinBoard");
         String username = CookiesProcessing.getCookie(req, CookiesProcessing.CookieName.WOT_USERNAME);
         int accountId = Integer.parseInt(CookiesProcessing.getCookie(req, CookiesProcessing.CookieName.WOT_USER_ID));
@@ -98,7 +98,7 @@ public class MakeAdRespondServlet extends HttpServlet {
         //вернем ответ для всплывалки, что все успешно
         PrintWriter outStream = resp.getWriter();
         resp.setContentType("text/html");
-        outStream.write("Respond Sucessful");// FIXME: 07.02.2018 Кодировку для кирилицы
+        outStream.write("It happened!"+System.currentTimeMillis());// FIXME: 07.02.2018 Кодировку для кирилицы
 
         outStream.flush();
         outStream.close();

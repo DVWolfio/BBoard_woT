@@ -47,8 +47,13 @@
     </div>
     <%--Логотип сюда попозже--%>
 </h1>
+<div
+        <%--class="не задал." --%>
+     id="RespondNotice"style=" display: none; "></div>
 
 <h2>
+    <%--<div id="RespondNotice" title="Topic"></div>--%>
+
     <div class="b-content">
 
         <%
@@ -87,27 +92,27 @@
             <p><input type="reset" value="Очистить"></p>
             <p><input type="submit" value="Отправить"></p>
         </form>
-<%--examples------------------------------------------------------------%>
+        <%--examples------------------------------------------------------------%>
         <%--<div class="b_ad">--%>
-            <%--<div class="b_ad_right_side">--%>
-                <%--<p><a href="https://worldoftanks.ru/ru/community/accounts/$$$ACC_ID-$$$NICKNAME/">$$$NICKNAME</a></p>--%>
-            <%--</div>--%>
-            <%--<div class="b_ad_left_side">--%>
-                <%--<div class="b_ad_text">--%>
-                    <%--<p>$$$TEXT_MESS--%>
-                    <%--</p>--%>
-                <%--</div>--%>
-                <%--<div class="b_ad_time_cr" style="float: right">--%>
-                    <%--<p>$$$TIME_AGO</p>--%>
-                <%--</div>--%>
-                <%--<button class="b-button_right_" id="30" onclick="jsAdRespondAdd(this)">+Кнопка с рисунком</button>--%>
-                <%--<span class="real-show-hint"--%>
-                      <%--style="cursor: pointer;  border-bottom: dashed 1px;"--%>
-                      <%--onclick="jsShowResponds(this)"--%>
-                      <%--id="30">--%>
-                    <%--Отклики--%>
-                <%--</span>--%>
-            <%--</div>--%>
+        <%--<div class="b_ad_right_side">--%>
+        <%--<p><a href="https://worldoftanks.ru/ru/community/accounts/$$$ACC_ID-$$$NICKNAME/">$$$NICKNAME</a></p>--%>
+        <%--</div>--%>
+        <%--<div class="b_ad_left_side">--%>
+        <%--<div class="b_ad_text">--%>
+        <%--<p>$$$TEXT_MESS--%>
+        <%--</p>--%>
+        <%--</div>--%>
+        <%--<div class="b_ad_time_cr" style="float: right">--%>
+        <%--<p>$$$TIME_AGO</p>--%>
+        <%--</div>--%>
+        <%--<button class="b-button_right_" id="30" onclick="jsAdRespondAdd(this)">+Кнопка с рисунком</button>--%>
+        <%--<span class="real-show-hint"--%>
+        <%--style="cursor: pointer;  border-bottom: dashed 1px;"--%>
+        <%--onclick="jsShowResponds(this)"--%>
+        <%--id="30">--%>
+        <%--Отклики--%>
+        <%--</span>--%>
+        <%--</div>--%>
         <%--</div>--%>
 
         <div class="b_ad" id="30">
@@ -121,7 +126,7 @@
                 <div class="b_ad_time_cr" style="float: right">
                     <p>$$$TIME_AGO</p>
                 </div>
-                <button class="b-button_right_" >Откликнуться</button>
+                <button class="b-button_right_">Откликнуться</button>
                 <span class="real-show-hint" style="cursor: pointer;  border-bottom: dashed 1px;">Resps</span>
             </div>
         </div>
@@ -177,4 +182,6 @@
         integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
         crossorigin="anonymous"></script>
 <script type="text/javascript" src="JsFunctions.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </html>

@@ -94,7 +94,7 @@ public class Database {
         return result;
     }
 
-    public static void addNewAc(int accId, int duration, String text, String nickname) throws SQLException {
+    public static void addNewAd(int accId, int duration, String text, String nickname) throws SQLException {
         String sql = "" +
                 "INSERT INTO bboard (account_id,  duration, text, tags, nickname) " +
                 "VALUES (" + accId + "," + duration + ",'" + text + "',NULL ,'" + nickname + "')" +
@@ -130,12 +130,12 @@ public class Database {
     }
 
     public static void addRespond(int adNum, int accountId, String username, int battleCnt, double winRate, int globalRate) throws SQLException {
-        if (alreadyResponded(adNum, accountId)) return;
+        if (alreadyResponded(adNum, accountId)) return; // FIXME: 01.01.2018 Придумать как уведомлять всплывалкой об этом
 
         String sql =
                 "INSERT INTO responds(resp_ref, username, user_id, battle_count, win_rate, own_rate)" +
                         "VALUES (" + adNum + ",'" + username + "'," + accountId + "," + battleCnt + "," + winRate + "," + globalRate + ")";
-//        System.out.println("Sql: " + sql);
+        System.out.println("Sql: " + sql);
         getConn().createStatement().executeUpdate(sql);
 
     }

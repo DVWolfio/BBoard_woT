@@ -77,17 +77,13 @@ $(document).ready(function () {
         //добавляет отклик по ID обьявления
         $.post("MakeAdRespond"
             , {AdId: $(this).closest("div.b_ad").prop("id")}
-            // , function (data) {
-            //     alert(data)
-            // }
-        ,function (data) {
-            var w = window.open('about:blank');
-            w.document.open();
-            w.document.write(data);
-            w.document.close();
-
-        }
-        );
+            // , function (data) {alert(data)}
+            , function (data) {
+                $("#RespondNotice").html(data);
+                $("#RespondNotice").dialog();
+                $("#RespondNotice").delay(1000).fadeOut(0);
+            }
+        )
         // alert("id : " + $(this).closest("div.b_ad").prop("id"));
     });
 });

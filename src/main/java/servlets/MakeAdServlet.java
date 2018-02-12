@@ -1,9 +1,7 @@
 package servlets;
 
 import Classes.Database;
-import Classes.LoginInfo;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,8 +38,6 @@ public class MakeAdServlet extends HttpServlet {
             duration = req.getIntHeader("duration_time");
             textAd = new String(req.getParameter("AdText").getBytes("ISO-8859-1"), Charset.forName("UTF-8"));
 //            textAd = req.getParameter("AdText");
-//            System.out.println("textAd: "+textAd);
-            // FIXME: 26.11.2017 РАЗОБРАТЬСЯ С КОДИРОВКОЙ
 
             
             // FIXME: 26.11.2017 добавить передачу тегов в будущем
@@ -49,7 +45,7 @@ public class MakeAdServlet extends HttpServlet {
             accIdl = Integer.parseInt(getCookie(req, CookiesProcessing.CookieName.WOT_USER_ID));
 
             try {
-                Database.addNewAc(accIdl, duration, textAd, nickName);
+                Database.addNewAd(accIdl, duration, textAd, nickName);
                 // FIXME: 26.11.2017 подумать на счет вставки служебных симвлолов
             } catch (SQLException sqlEx) {
                 System.out.println("Ошибка добавления объявления в БД");
