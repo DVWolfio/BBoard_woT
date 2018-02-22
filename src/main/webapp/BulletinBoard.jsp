@@ -5,25 +5,44 @@
 <%!
     //    https://stackoverflow.com/questions/826932/declaring-functions-in-jsp
     public String doStylizeAd(String accId, String nickN, String cr_date, String text, String tags, String idAd) {
+//        return ("" +
+//                "       <div class=\"b_ad\">\n" +
+//                "            <div class=\"b_ad_right_side\">\n" +
+//                "                <p><a href=\"https://worldoftanks.ru/ru/community/accounts/" + accId + "-" + nickN + "/\">" + nickN + "</a></p>\n" +
+//                "            </div>\n" +
+//                "            <div class=\"b_ad_left_side\">\n" +
+//                "                <div class=\"b_ad_text\">\n" +
+//                "                    <p>" + text + "\n" +
+//                "                    </p>\n" +
+//                "                </div>\n" +
+//                "                <div class=\"b_ad_time_cr\" style=\"float: right\">\n" +
+//                "                    <p>" + cr_date + "</p>\n" +
+//                "                </div>\n" +
+//                "                <div class=\"b-button_right\">\n" +
+//                "                   <button class = \"b-button_right_\" id = \"" + idAd + "\" onclick=\"jsAdRespondAdd(this)\">(!)Откликнуться</button>\n" +
+//                "                </div>\n" +
+//                "            </div>\n" +
+//                "        </div>\n"
+//        );
         return ("" +
-                "       <div class=\"b_ad\">\n" +
+                "       <div class=\"b_ad\" id=\""+idAd+"\">\n" +
                 "            <div class=\"b_ad_right_side\">\n" +
-                "                <p><a href=\"https://worldoftanks.ru/ru/community/accounts/" + accId + "-" + nickN + "/\">" + nickN + "</a></p>\n" +
+                "                <p><a href=\"https://worldoftanks.ru/ru/community/accounts/"+accId+"-"+nickN+"/\">"+nickN+"</a></p>\n" +
                 "            </div>\n" +
                 "            <div class=\"b_ad_left_side\">\n" +
                 "                <div class=\"b_ad_text\">\n" +
-                "                    <p>" + text + "\n" +
-                "                    </p>\n" +
+                "                    <p>"+text+" </p>\n" +
                 "                </div>\n" +
                 "                <div class=\"b_ad_time_cr\" style=\"float: right\">\n" +
-                "                    <p>" + cr_date + "</p>\n" +
+                "                    <p>"+cr_date+"</p>\n" +
                 "                </div>\n" +
-                "                <div class=\"b-button_right\">\n" +
-                "                   <button class = \"b-button_right_\" id = \"" + idAd + "\" onclick=\"jsAdRespondAdd(this)\">(!)Откликнуться</button>\n" +
-                "                </div>\n" +
+                "                <button class=\"b-button_right\">Откликнуться</button>\n" +
+                "                <span class=\"real-show-hint\" style=\"cursor: pointer;  border-bottom: dashed 1px;\">" +
+                "                   Отклики" +
+                "                </span>\n" +
                 "            </div>\n" +
-                "        </div>\n"
-        );
+                "        </div>"
+                );
     }
 %>
 <!DOCTYPE html>
@@ -49,7 +68,9 @@
 </h1>
 <div
         <%--class="не задал." --%>
-     id="RespondNotice"style=" display: none; "></div>
+     id="RespondNotice"
+     <%--style=" display: none; "--%>
+></div>
 
 <h2>
     <%--<div id="RespondNotice" title="Topic"></div>--%>

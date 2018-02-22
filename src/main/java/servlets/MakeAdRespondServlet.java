@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.sql.SQLException;
 
 import static javax.ws.rs.core.HttpHeaders.USER_AGENT;
@@ -96,18 +97,15 @@ public class MakeAdRespondServlet extends HttpServlet {
         }
 
         //вернем ответ для всплывалки, что все успешно
+        resp.setContentType("text/html; charset=UTF-8");
+//        resp.setCharacterEncoding("ISO-8859-1");
         PrintWriter outStream = resp.getWriter();
-        resp.setContentType("text/html");
-        outStream.write("It happened!"+System.currentTimeMillis());// FIXME: 07.02.2018 Кодировку для кирилицы
+        outStream.write("Отклик добавлен"+" " + System.currentTimeMillis());// FIXME: 07.02.2018 Кодировку для кирилицы
 
         outStream.flush();
         outStream.close();
 
-
-
     }
-
-
 }
 
 

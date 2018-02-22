@@ -73,15 +73,25 @@ $(document).on('click', '.spoiler-trigger', function (e) {
 
 //show id
 $(document).ready(function () {
-    $(".b-button_right_").click(function () {
+    $(".b-button_right").click(function () {
         //добавляет отклик по ID обьявления
         $.post("MakeAdRespond"
             , {AdId: $(this).closest("div.b_ad").prop("id")}
             // , function (data) {alert(data)}
             , function (data) {
                 $("#RespondNotice").html(data);
-                $("#RespondNotice").dialog();
-                $("#RespondNotice").delay(1000).fadeOut(0);
+                // $("#RespondNotice").dialog();
+                // $("#RespondNotice").delay(1000);
+                $("#RespondNotice").dialog({
+                    title: "Уведомление",
+                    closeOnEscape: true,
+                    closeText: "Закрыть",
+                    dialogClass: "notification",
+                    show: "slide",
+                    modal: false,
+                    resizable: false,
+                    open: function (event, ui) {setTimeout("$('#RespondNotice').dialog('close')", 1500);}
+                })
             }
         )
         // alert("id : " + $(this).closest("div.b_ad").prop("id"));

@@ -91,7 +91,7 @@ body {
 }
 
 .b-button_right {
-    /*border: medium none;*/
+    border: medium none;
     background: url("css/small-orange-button.png") no-repeat 100% 0;
     color: #fff;
     cursor: pointer;
@@ -101,7 +101,7 @@ body {
     font-weight: 700;
     height: 27px;
     line-height: 27px;
-    margin: 0 -20px 0 2px;
+    margin: 0 5px 0 2px;
     padding: 0 5px 1px;
     position: relative;
     text-decoration: none;
@@ -124,6 +124,9 @@ body {
     color: #777;
     margin-right: 5%;
 }
-
+.ui-dialog .ui-dialog-content {
+    background: url("css/BulletinBoard_background.jpg");
+    padding: 20px 27px 28px;
+}
 /*------------------------------------------------*/
 
