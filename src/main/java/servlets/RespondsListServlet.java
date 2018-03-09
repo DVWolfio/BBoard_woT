@@ -25,6 +25,7 @@ public class RespondsListServlet extends HttpServlet {
 //        doGet(req,resp);
         System.out.println("RespondsList_POST");
         int advertId = Integer.parseInt(req.getParameter("AdId"));
+        System.out.println("advertId: "+advertId);
         //исп.массив,чтобы не терялась ссылка на обьект.
         final Integer []columnsCount = {0};
         try {
@@ -32,6 +33,7 @@ public class RespondsListServlet extends HttpServlet {
             PrintWriter outStream = resp.getWriter();
             resp.setContentType("text/html");
             outStream.write(responds.toString().replaceAll("[\\[\\]]",""));
+            System.out.println(responds.toString());
 
             outStream.flush();
             outStream.close();

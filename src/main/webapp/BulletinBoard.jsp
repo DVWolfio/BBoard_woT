@@ -5,25 +5,6 @@
 <%!
     //    https://stackoverflow.com/questions/826932/declaring-functions-in-jsp
     public String doStylizeAd(String accId, String nickN, String cr_date, String text, String tags, String idAd) {
-//        return ("" +
-//                "       <div class=\"b_ad\">\n" +
-//                "            <div class=\"b_ad_right_side\">\n" +
-//                "                <p><a href=\"https://worldoftanks.ru/ru/community/accounts/" + accId + "-" + nickN + "/\">" + nickN + "</a></p>\n" +
-//                "            </div>\n" +
-//                "            <div class=\"b_ad_left_side\">\n" +
-//                "                <div class=\"b_ad_text\">\n" +
-//                "                    <p>" + text + "\n" +
-//                "                    </p>\n" +
-//                "                </div>\n" +
-//                "                <div class=\"b_ad_time_cr\" style=\"float: right\">\n" +
-//                "                    <p>" + cr_date + "</p>\n" +
-//                "                </div>\n" +
-//                "                <div class=\"b-button_right\">\n" +
-//                "                   <button class = \"b-button_right_\" id = \"" + idAd + "\" onclick=\"jsAdRespondAdd(this)\">(!)Откликнуться</button>\n" +
-//                "                </div>\n" +
-//                "            </div>\n" +
-//                "        </div>\n"
-//        );
         return ("" +
                 "       <div class=\"b_ad\" id=\""+idAd+"\">\n" +
                 "            <div class=\"b_ad_right_side\">\n" +
@@ -37,7 +18,7 @@
                 "                    <p>"+cr_date+"</p>\n" +
                 "                </div>\n" +
                 "                <button class=\"b-button_right\">Откликнуться</button>\n" +
-                "                <span class=\"real-show-hint\" style=\"cursor: pointer;  border-bottom: dashed 1px;\">" +
+                "                <span class=\"responds_list\" >" +
                 "                   Отклики" +
                 "                </span>\n" +
                 "            </div>\n" +
@@ -66,11 +47,7 @@
     </div>
     <%--Логотип сюда попозже--%>
 </h1>
-<div
-        <%--class="не задал." --%>
-     id="RespondNotice"
-     <%--style=" display: none; "--%>
-></div>
+<div id="RespondNotice"></div>
 
 <h2>
     <%--<div id="RespondNotice" title="Topic"></div>--%>
@@ -98,7 +75,6 @@
 //    }
         %>
 
-
         <form action="MakeAd" method="post">
             <p>
                 <select size="1" multiple name="duration_time">
@@ -113,29 +89,8 @@
             <p><input type="reset" value="Очистить"></p>
             <p><input type="submit" value="Отправить"></p>
         </form>
+        
         <%--examples------------------------------------------------------------%>
-        <%--<div class="b_ad">--%>
-        <%--<div class="b_ad_right_side">--%>
-        <%--<p><a href="https://worldoftanks.ru/ru/community/accounts/$$$ACC_ID-$$$NICKNAME/">$$$NICKNAME</a></p>--%>
-        <%--</div>--%>
-        <%--<div class="b_ad_left_side">--%>
-        <%--<div class="b_ad_text">--%>
-        <%--<p>$$$TEXT_MESS--%>
-        <%--</p>--%>
-        <%--</div>--%>
-        <%--<div class="b_ad_time_cr" style="float: right">--%>
-        <%--<p>$$$TIME_AGO</p>--%>
-        <%--</div>--%>
-        <%--<button class="b-button_right_" id="30" onclick="jsAdRespondAdd(this)">+Кнопка с рисунком</button>--%>
-        <%--<span class="real-show-hint"--%>
-        <%--style="cursor: pointer;  border-bottom: dashed 1px;"--%>
-        <%--onclick="jsShowResponds(this)"--%>
-        <%--id="30">--%>
-        <%--Отклики--%>
-        <%--</span>--%>
-        <%--</div>--%>
-        <%--</div>--%>
-
         <div class="b_ad" id="30">
             <div class="b_ad_right_side">
                 <p><a href="https://worldoftanks.ru/ru/community/accounts/$$$ACC_ID-$$$NICKNAME/">$$$NICKNAME</a></p>
@@ -148,13 +103,19 @@
                     <p>$$$TIME_AGO</p>
                 </div>
                 <button class="b-button_right_">Откликнуться</button>
-                <span class="real-show-hint" style="cursor: pointer;  border-bottom: dashed 1px;">Resps</span>
+                <%--<span class="responds_list">Resps</span>--%>
+                <a href="#" class="spoiler-trigger">
+                    <span>Отклики(спойлер)</span>
+                </a>
+                <div class="spoiler-block"></div>
             </div>
         </div>
         <%--examples end------------------------------------------------------------%>
 
         <div class="b_ad">
-            <a href="#" class="spoiler-trigger"><span>Развернуть спойлер</span></a>
+            <a href="#" class="spoiler-trigger">
+                <span>Развернуть спойлер</span>
+            </a>
             <div class="spoiler-block">Скрытый контент спойлера</div>
         </div>
 

@@ -6,6 +6,7 @@
 // }
 
 
+//отображение откликов. Устар.
 function jsShowResponds(element) {
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", "RespondsList", true);
@@ -57,21 +58,36 @@ function jsShowResponds(element) {
     // alert("readyState"+xhttp.readyState);
 }
 
-//Разворот спойлера
+// Разворот спойлера-пример(статичны блок)
 $(document).on('click', '.spoiler-trigger', function (e) {
-    e.preventDefault();
-    $(this).toggleClass('active');
-    // $(this).parent().find('.spoiler-block').first().slideToggle(300);
     $(this)
         .parent()
         .find('.spoiler-block')
         .html("SomeText")
         .slideToggle(300);
-
-    console.log("DEBUG: " + this.parent());
 });
 
-//show id
+//переделать под слайдер с откликами под каждое АД
+$(document).ready(function () {
+    $(".spoiler-trigger").click(function () {
+        $.post("RespondsList"
+            , {AdId: $(this).closest("div.b_ad").prop("id")}
+            // , function (data) {alert("::responds_list::\t"+$(this).closest("div.b_ad").prop("id"))}
+            , function (data) {
+                $(this)
+                    .parent()
+                    .find('.spoiler-block')
+                    .html(data);
+                    // .slideToggle(300);
+                // console.log(data);
+            }
+        )
+        // alert("id : " + data);
+    });
+});
+
+
+//возвратает сообщение с результатом отклика
 $(document).ready(function () {
     $(".b-button_right").click(function () {
         //добавляет отклик по ID обьявления
@@ -90,10 +106,12 @@ $(document).ready(function () {
                     show: "slide",
                     modal: false,
                     resizable: false,
-                    open: function (event, ui) {setTimeout("$('#RespondNotice').dialog('close')", 1500);}
+                    open: function (event, ui) {
+                        setTimeout("$('#RespondNotice').dialog('close')", 1500);
+                    }
                 })
             }
         )
-        // alert("id : " + $(this).closest("div.b_ad").prop("id"));
+
     });
 });

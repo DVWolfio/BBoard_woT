@@ -84,6 +84,10 @@ body {
     overflow: hidden;
     height: auto;
 }
+.responds_list{
+    cursor: pointer;
+    border-bottom: dashed 1px;
+}
 
 .b_ad_text {
     margin-right: 5%;
