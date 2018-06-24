@@ -115,6 +115,10 @@ body {
     text-shadow: rgba(0, 0, 0, 0.4) 0 -1px 0;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
+.b_button_responds{
+
+}
+
 /*.b-button_right:hover {background-color: #3e8e41}*/
 /*.b-button_right:active {*/
     /*background-color: #3e8e41;*/

@@ -18,9 +18,8 @@
                 "                    <p>"+cr_date+"</p>\n" +
                 "                </div>\n" +
                 "                <button class=\"b-button_right\">Откликнуться</button>\n" +
-                "                <span class=\"responds_list\" >" +
-                "                   Отклики" +
-                "                </span>\n" +
+                " 				 <a href=\"#\" class=\"b_button_responds\">\n" +
+                "					<span>Отклики(спойлер)</span></a><div class=\"spoiler-block\"></div>\n" +
                 "            </div>\n" +
                 "        </div>"
                 );
@@ -104,7 +103,7 @@
                 </div>
                 <button class="b-button_right_">Откликнуться</button>
                 <%--<span class="responds_list">Resps</span>--%>
-                <a href="#" class="spoiler-trigger">
+                <a href="#" class="b_button_responds">
                     <span>Отклики(спойлер)</span>
                 </a>
                 <div class="spoiler-block"></div>
@@ -112,12 +111,6 @@
         </div>
         <%--examples end------------------------------------------------------------%>
 
-        <div class="b_ad">
-            <a href="#" class="spoiler-trigger">
-                <span>Развернуть спойлер</span>
-            </a>
-            <div class="spoiler-block">Скрытый контент спойлера</div>
-        </div>
 
         <% if (request.getAttribute("AdActual") != null) {
             ArrayList<String> adList = (ArrayList<String>) request.getAttribute("AdActual");

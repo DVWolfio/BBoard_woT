@@ -57,33 +57,72 @@ function jsShowResponds(element) {
     // alert("Text_LOG:"+xhttp.responseText);
     // alert("readyState"+xhttp.readyState);
 }
+/*
 
 // Разворот спойлера-пример(статичны блок)
 $(document).on('click', '.spoiler-trigger', function (e) {
     $(this)
         .parent()
         .find('.spoiler-block')
-        .html("SomeText")
+        .html("<table style=\"width:100%\">\n" +
+            "  <tr>\n" +
+            "    <th>Firstname</th>\n" +
+            "    <th>Lastname</th> \n" +
+            "    <th>Age</th>\n" +
+            "  </tr>\n" +
+            "  <tr>\n" +
+            "    <td>Jill</td>\n" +
+            "    <td>Smith</td> \n" +
+            "    <td>50</td>\n" +
+            "  </tr>\n" +
+            "  <tr>\n" +
+            "    <td>Eve</td>\n" +
+            "    <td>Jackson</td> \n" +
+            "    <td>94</td>\n" +
+            "  </tr>\n" +
+            "</table>")
         .slideToggle(300);
 });
+*/
 
 //переделать под слайдер с откликами под каждое АД
+/*
 $(document).ready(function () {
-    $(".spoiler-trigger").click(function () {
+    $(".b_button_responds").click(function () {
+        alert("Respind_id!:"+ $(this).closest("div.b_ad").prop("id"));
         $.post("RespondsList"
             , {AdId: $(this).closest("div.b_ad").prop("id")}
             // , function (data) {alert("::responds_list::\t"+$(this).closest("div.b_ad").prop("id"))}
             , function (data) {
                 $(this)
                     .parent()
-                    .find('.spoiler-block')
+                    .find('spoiler-block')
                     .html(data);
-                    // .slideToggle(300);
-                // console.log(data);
+                alert($(this)
+                    .parent()
+                    .find('.spoiler-block').className );
             }
         )
-        // alert("id : " + data);
     });
+});
+*/
+//Рабочий вариант.Возвращает отклики на объявление
+$(function () {
+    $(".b_ad").on("click", ".b_button_responds", function (event) {
+        event.preventDefault();
+        var parent = event.delegateTarget,
+            id = parent.id,
+            spoiler = $('.spoiler-block', parent),
+            text = spoiler.text(),
+            str = "загрузка...";
+        if(text) spoiler.slideToggle(300);
+        else if(text != str){
+            spoiler.text(str);
+            $.post("RespondsList"
+                , {AdId: id}
+                , function (data) { spoiler.html(data);})
+        }
+    })
 });
 
 
@@ -115,3 +154,11 @@ $(document).ready(function () {
 
     });
 });
+/*
+$(document).ready(function () {
+    $(".b_button_responds").click(function () {
+
+    });
+});
+
+*/
