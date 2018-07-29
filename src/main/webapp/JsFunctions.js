@@ -57,6 +57,7 @@ function jsShowResponds(element) {
     // alert("Text_LOG:"+xhttp.responseText);
     // alert("readyState"+xhttp.readyState);
 }
+
 /*
 
 // Разворот спойлера-пример(статичны блок)
@@ -107,23 +108,52 @@ $(document).ready(function () {
 });
 */
 //Рабочий вариант.Возвращает отклики на объявление
-$(function () {
-    $(".b_ad").on("click", ".b_button_responds", function (event) {
+// $(function () {
+//     $(".b_ad").on("click", ".b_button_responds", function (event) {
+//         event.preventDefault();
+//         var parent = event.delegateTarget,
+//             id = parent.id,
+//             spoiler = $('.spoiler-block', parent),
+//             text = spoiler.text(),
+//             str = "загрузка...";
+//
+//         if (text) {
+//             spoiler.slideToggle(300);
+//             spoiler.text("");
+//         }
+//         else if (text != str) {
+//             spoiler.text(str);
+//             $.post("RespondsList"
+//                 , {AdId: id}
+//                 , function (data) {
+//                     spoiler.html(data);
+//                 })
+//         }
+//     })
+// });
+$(function() {
+    $(".b_ad").on("click", ".b_button_responds", function(event) {
         event.preventDefault();
         var parent = event.delegateTarget,
             id = parent.id,
-            spoiler = $('.spoiler-block', parent),
-            text = spoiler.text(),
-            str = "загрузка...";
-        if(text) spoiler.slideToggle(300);
-        else if(text != str){
-            spoiler.text(str);
-            $.post("RespondsList"
-                , {AdId: id}
-                , function (data) { spoiler.html(data);})
+            spoiler = $(".spoiler-block", parent),
+            html = spoiler.html(),
+            str = "загрузка...<img src='http://pampinta.com/imgs/img_loader.gif' alt=''>";
+        if (html == str) return;
+        if (html.trim()) spoiler.slideUp(300, function() {
+            spoiler.html("")
+        });
+        else {
+            spoiler.html(str).slideDown();
+            $.post("RespondsList", {
+                AdId: id
+            }, function(data) {
+                spoiler.html(data)
+            })
         }
     })
 });
+
 
 
 //возвратает сообщение с результатом отклика

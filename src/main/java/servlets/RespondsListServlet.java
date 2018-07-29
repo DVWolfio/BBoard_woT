@@ -25,14 +25,59 @@ public class RespondsListServlet extends HttpServlet {
 //        doGet(req,resp);
         System.out.println("RespondsList_POST");
         int advertId = Integer.parseInt(req.getParameter("AdId"));
-        System.out.println("advertId: "+advertId);
+        System.out.println("advertId: " + advertId);
         //исп.массив,чтобы не терялась ссылка на обьект.
-        final Integer []columnsCount = {0};
+        final Integer[] columnsCount = {0};
         try {
-            ArrayList<String> responds = Database.getRespondsList(advertId,columnsCount);
+            ArrayList<String> responds = Database.getRespondsList(advertId, columnsCount);
+            resp.setContentType("text/html; charset=UTF-8");
             PrintWriter outStream = resp.getWriter();
-            resp.setContentType("text/html");
-            outStream.write(responds.toString().replaceAll("[\\[\\]]",""));
+            /*todo
+            Вставить ответ, с разбором запроса:*/
+            StringBuilder respondsTable = new StringBuilder();
+            respondsTable = respondsTable
+                    .append("<table class=\"t_responds\" style=\"width: 600px;\">")
+                    .append("<tbody>")
+                    .append("<tr>")
+                    .append("<th style=\"min-width:50px;\">")
+                    .append("<span class=\"measure\">Боец</span>")
+                    .append("</th>")
+                    .append("<th style=\"min-width:50px; max-width:150px;\">Количество<br>")
+                    .append("<span class=\"measure\">боев</span>")
+                    .append("</th>")
+                    .append("</th>")
+                    .append("<th style=\"min-width:50px; max-width:180px;\">Процент побед<br>")
+                    .append("<span class=\"measure\">(%)</span>")
+                    .append("</th>")
+                    .append("<th style=\"min-width:50px; max-width:180px;\">Личный рейтинг<br>")
+                    .append("<span class=\"measure\">(WG)</span>")
+                    .append("</th>")
+                    .append("</tr>");
+            for (int i = 0; i < responds.size()+1 / columnsCount[0]; i+=columnsCount[0]) {
+                respondsTable
+                        .append("<tr>")
+                        .append("<td><p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://worldoftanks.ru/ru/community/accounts/")
+                        .append(responds.get(i + 1)).append("-")
+                        .append(responds.get(i))
+                        .append("/\">").append(responds.get(i))
+                        .append("</a></p></td>")
+                        .append("<td>")
+                        .append(responds.get(i + 2))
+                        .append("</td>")
+                        .append("<td>")
+                        .append(responds.get(i + 3))
+                        .append("</td>")
+                        .append("<td>")
+                        .append(responds.get(i + 4))
+                        .append("</td>")
+                        .append("</tr>");
+//                System.out.println(i);
+
+            }
+            respondsTable.append("</tbody>")
+                    .append("</table>");
+            outStream.write(respondsTable.toString());
+//            outStream.write(responds.toString().replaceAll("[\\[\\]]",""));
             System.out.println(responds.toString());
 
             outStream.flush();

@@ -19,7 +19,7 @@
                 "                </div>\n" +
                 "                <button class=\"b-button_right\">Откликнуться</button>\n" +
                 " 				 <a href=\"#\" class=\"b_button_responds\">\n" +
-                "					<span>Отклики(спойлер)</span></a><div class=\"spoiler-block\"></div>\n" +
+                "					<span>Отклики</span></a><div class=\"spoiler-block\"></div>\n" +
                 "            </div>\n" +
                 "        </div>"
                 );
@@ -136,19 +136,6 @@
 
 
 </h2>
-
-<div id="real-hint-1" class="real-hint">
-    <div class="prm-cross"></div>
-    <span class="hint-caption">Подсказка 1.</span><br/>
-    Вы нажали на первую ссылку
-</div>
-
-<div id="real-hint-2" class="real-hint">
-    <div class="prm-cross"></div>
-    <span class="hint-caption">Подсказка 2.</span><br/>
-    Вы нажали на вторую ссылку
-</div>
-
 
 </body>
 <script

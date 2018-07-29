@@ -84,7 +84,8 @@ body {
     overflow: hidden;
     height: auto;
 }
-.responds_list{
+
+.responds_list {
     cursor: pointer;
     border-bottom: dashed 1px;
 }
@@ -115,15 +116,16 @@ body {
     text-shadow: rgba(0, 0, 0, 0.4) 0 -1px 0;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
-.b_button_responds{
+
+.b_button_responds {
 
 }
 
 /*.b-button_right:hover {background-color: #3e8e41}*/
 /*.b-button_right:active {*/
-    /*background-color: #3e8e41;*/
-    /*box-shadow: 0 5px #666;*/
-    /*transform: translateY(4px);*/
+/*background-color: #3e8e41;*/
+/*box-shadow: 0 5px #666;*/
+/*transform: translateY(4px);*/
 /*}*/
 
 .b_ad_time_cr {
@@ -132,9 +134,44 @@ body {
     color: #777;
     margin-right: 5%;
 }
+/*--RespondsListBlock--------------------------------------*/
+.t_responds {
+    border: 1px solid #d0d0d0;
+    /*clear: both;*/
+    margin: 0 100px 1px;
+    /*min-width: 100%;*/
+    /**width: 100%*/
+}
+
+.t_responds th {
+    background: rgb(249, 249, 249);
+    background: rgba(249, 249, 249, .8);
+    color: #828282;
+    font-size: 11px;
+    font-weight: normal;
+    line-height: 14px;
+    /*padding: 8px 5px;*/
+    vertical-align: middle;
+    text-align: center
+}
+
+.t_responds td {
+    background: #e8e8e7;
+    background: rgba(255, 255, 255, 0.2);
+    font-size: 11px;
+    line-height: 16px;
+    padding: 0px 5px
+}
+
+.t_responds td + td {
+    font-size: 12px;
+    text-align: center
+}
+/*----------------------------------------*/
 .ui-dialog .ui-dialog-content {
     background: url("css/BulletinBoard_background.jpg");
     padding: 20px 27px 28px;
 }
+
 /*------------------------------------------------*/
 

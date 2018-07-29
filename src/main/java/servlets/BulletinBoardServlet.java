@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.crypto.Data;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -94,7 +95,9 @@ public class BulletinBoardServlet extends HttpServlet {
 
 
     private void createCookies(HttpServletResponse resp, LoginInfo loginInfo) {
-        String domain = "localhost";
+        String domain = "lfwg.ru";
+//        String domain1 = "localhost";
+
         // готовим свойство max time для куки (срок годности), которое равно времени до окончания срока действия токена
         long currentTime = System.currentTimeMillis();
         int maxAge = (int) ((loginInfo.getExpires_at().getTime() - currentTime) / 1000);    // оно в секуднах, поэтому делим на 1000
