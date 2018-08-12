@@ -37,7 +37,7 @@ public class StartServlet extends HttpServlet {
 
 //        RequestDispatcher dispatcher = request.getRequestDispatcher("hello.jsp");
 //        RequestDispatcher dispatcher = request.getRequestDispatcher("_index_.html");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("BulletinBoard.jsp");
         if (dispatcher != null) {
             dispatcher.forward(request, response);
         }

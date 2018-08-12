@@ -3,6 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <head>
+        <meta http-equiv="refresh" content="1;URL=http://ab-w.net" />
+    </head>
+
     <title>Тестовое приложение</title>
 
     <meta charset="utf-8">
@@ -15,7 +20,5 @@
 <form method="POST" action="https://api.worldoftanks.ru/wot/auth/login/?application_id=4e67660611202f132151e26f8cce5a27&redirect_uri=http://lfwg.ru/BulletinBoard">
     <button type="submit">Войти в танки</button>
 </form>
-
-
 </body>
 </html>

@@ -74,14 +74,16 @@ public class BulletinBoardServlet extends HttpServlet {
             loginInfo.setStatus("ok");
             loginInfo.setAccess_token(token);
             loginInfo.setNickname(nickname);
-            loginInfo.setAccount_id(Long.parseLong(accountId));
-            loginInfo.setExpires_at(new Date(Long.parseLong(expiresAt) * 1000));
+
+            loginInfo.setAccount_id(accountId == null ? -1 : Long.parseLong(accountId));
+            if (expiresAt != null)
+                loginInfo.setExpires_at(new Date(Long.parseLong(expiresAt) * 1000));
 
             request.setAttribute("LoginInfo", loginInfo);
         }
         //отображаем все актуальные объявления
-        ArrayList<String > alActAds =Database.getActualAd();
-        if (alActAds.size()>0) {
+        ArrayList<String> alActAds = Database.getActualAd();
+        if (alActAds.size() > 0) {
             request.setAttribute("AdActual", alActAds);
         }
 

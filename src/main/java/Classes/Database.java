@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Properties;
 
+
 public class Database {
 
     private static String url = "jdbc:postgresql:tdb";
@@ -165,7 +166,10 @@ public class Database {
     public static void main(String[] args) {
 
 
-        Byte.valueOf("SleEpEe");
+//        Byte.valueOf("SleEpEe");
+        String accountId = null;
+        System.out.println(accountId==null ? null : Long.parseLong(accountId));
+        LoginInfo loginInfo = new LoginInfo();
 
     }
 

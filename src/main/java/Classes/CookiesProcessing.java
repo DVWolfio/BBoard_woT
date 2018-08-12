@@ -13,11 +13,14 @@ public class CookiesProcessing {
     }
 
     public static String getCookie(HttpServletRequest req, CookieName cookieName) {
+
         Cookie[] cookies = req.getCookies();
-        for (Cookie c : cookies) {
-            if (cookieName.toString().equalsIgnoreCase(c.getName())) return c.getValue();
+        if (cookies != null) {
+            for (Cookie c : cookies) {
+                if (cookieName.toString().equalsIgnoreCase(c.getName())) return c.getValue();
+            }
         }
-        return "";
+        return null;
     }
 
     public static Cookie setCookie(HttpServletResponse resp, CookieName name, String value, String domain, int maxAge) {

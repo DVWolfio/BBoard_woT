@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="lfwg_ru">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="lfwg_ru.war">
-      <element id="artifact" artifact-name="MyFirstWebProject:war exploded" />
-    </root>
-  </artifact>
-</component>
