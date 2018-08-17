@@ -7,10 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class CookiesProcessing {
 
-    // FIXME: 03.12.2017 найти место этому методу
-    public static String getApplicationId(){
-        return "4e67660611202f132151e26f8cce5a27";
-    }
+
+
 
     public static String getCookie(HttpServletRequest req, CookieName cookieName) {
 

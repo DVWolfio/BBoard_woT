@@ -1,7 +1,5 @@
 package Classes;
 
-import java.io.*;
-import java.nio.file.Paths;
 import java.util.Date;
 
 public class LoginInfo {
@@ -14,6 +12,8 @@ public class LoginInfo {
 
     private String codeErr;
     private String messageErr;
+    public static String domainName;
+    public static int serverPort;
 
     public LoginInfo() {
 
@@ -68,5 +68,26 @@ public class LoginInfo {
         this.status = status;
         this.codeErr = codeErr;
         this.messageErr = messageErr;
+    }
+    public static String getApplicationId(){
+        return "4e67660611202f132151e26f8cce5a27";
+    }
+
+    public static void setDomainName(String domainName) {
+        LoginInfo.domainName = domainName;
+    }
+
+    public static String getDomainName() {
+
+        return domainName;
+    }
+
+    public static void setServerPort(int serverPort) {
+        LoginInfo.serverPort = serverPort;
+    }
+
+    public static int getServerPort() {
+
+        return serverPort;
     }
 }

@@ -59,6 +59,4 @@ public class MakeAdServlet extends HttpServlet {
 
         resp.sendRedirect("/BulletinBoard");
     }
-
-
 }

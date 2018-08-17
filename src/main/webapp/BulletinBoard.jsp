@@ -1,34 +1,59 @@
 <%@ page import="Classes.LoginInfo" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="sun.rmi.runtime.Log" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ page pageEncoding="UTF-8" %>
 <%!
     //    https://stackoverflow.com/questions/826932/declaring-functions-in-jsp
     public String doStylizeAd(String accId, String nickN, String cr_date, String text, String tags, String idAd) {
         return ("" +
-                "       <div class=\"b_ad\" id=\""+idAd+"\">\n" +
+                "       <div class=\"b_ad\" id=\"" + idAd + "\">\n" +
                 "            <div class=\"b_ad_right_side\">\n" +
-                "                <p><a href=\"https://worldoftanks.ru/ru/community/accounts/"+accId+"-"+nickN+"/\">"+nickN+"</a></p>\n" +
+                "                <p><a href=\"https://worldoftanks.ru/ru/community/accounts/" + accId + "-" + nickN + "/\">" + nickN + "</a></p>\n" +
                 "            </div>\n" +
                 "            <div class=\"b_ad_left_side\">\n" +
                 "                <div class=\"b_ad_text\">\n" +
-                "                    <p>"+text+" </p>\n" +
+                "                    <p>" + text + " </p>\n" +
                 "                </div>\n" +
                 "                <div class=\"b_ad_time_cr\" style=\"float: right\">\n" +
-                "                    <p>"+cr_date+"</p>\n" +
+                "                    <p>" + cr_date + "</p>\n" +
                 "                </div>\n" +
                 "                <button class=\"b-button_right\">Откликнуться</button>\n" +
                 " 				 <a href=\"#\" class=\"b_button_responds\">\n" +
                 "					<span>Отклики</span></a><div class=\"spoiler-block\"></div>\n" +
                 "            </div>\n" +
                 "        </div>"
-                );
+        );
     }
 %>
+
+
 <!DOCTYPE html>
 <html>
 
 <head>
+    <%--<form method="POST"--%>
+    <%--action="https://api.worldoftanks.ru/wot/auth/login/?application_id=4e67660611202f132151e26f8cce5a27&redirect_uri=http://localhost:8080/BulletinBoard">--%>
+    <%--<button type="submit">Войти</button>--%>
+    <%--</form>--%>
+    <%
+
+        if (LoginInfo.domainName == null || LoginInfo.domainName.isEmpty()) {
+            out.println("");
+        } else {
+            out.println("" +
+                    "<form method=\"POST\"\n" +
+                    "   action=\"https://api.worldoftanks.ru/wot/auth/login/?application_id=" +
+                    LoginInfo.getApplicationId() +
+//                    "               4e67660611202f132151e26f8cce5a27" +
+                    "&redirect_uri=http://" +
+//                    "               localhost:8080/BulletinBoard" +
+                            LoginInfo.getDomainName()+":"+LoginInfo.getServerPort()+
+                    "\">" +
+                    "   <button type=\"submit\">Войти</button>\n" +
+                    "</form>");
+        }
+    %>
     <link rel="stylesheet" href="Styles.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,6 +81,7 @@
         <%
             //    if (request.getAttribute("LoginInfo") != null) {
             LoginInfo loginInfo = (LoginInfo) request.getAttribute("LoginInfo");
+//            System.out.println("JSP map is empty?:"+request.getParameterMap().isEmpty());
             if (loginInfo != null) {
                 if (loginInfo.getStatus().equalsIgnoreCase("ok")) {
 
@@ -88,7 +114,7 @@
             <p><input type="reset" value="Очистить"></p>
             <p><input type="submit" value="Отправить"></p>
         </form>
-        
+
         <%--examples------------------------------------------------------------%>
         <div class="b_ad" id="30">
             <div class="b_ad_right_side">

@@ -25,9 +25,9 @@ public class Database {
     private static Connection conn;
 
     static {
-        props.setProperty("user", "postgres");
-        props.setProperty("password", "123");
-        props.setProperty("charSet ", "UTF8");
+//        props.setProperty("user", "postgres");
+//        props.setProperty("password", "123");
+//        props.setProperty("charSet ", "UTF8");
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
@@ -40,7 +40,8 @@ public class Database {
 
         try {
             if (conn == null || conn.isClosed()) {
-                conn = DriverManager.getConnection(url, props);
+//                conn = DriverManager.getConnection(url, props);
+                conn = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/develop_db","wolfio", "qwerty");
             }
         } catch (SQLException e) {
             return false;

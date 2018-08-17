@@ -3,6 +3,7 @@ package servlets;
 import Classes.CookiesProcessing;
 import Classes.Database;
 import Classes.LoginInfo;
+import sun.rmi.runtime.Log;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.crypto.Data;
+import java.awt.*;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -24,12 +26,21 @@ public class BulletinBoardServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("BulletinBoardServlett_POST");
 //        super.doPost(request, response);
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println("BulletinBoardServlett_GET");
+        System.out.println(request.getServerName()+":"+request.getServerPort());
+        System.out.println(request.getProtocol());
+        if (LoginInfo.domainName == null ){
+            LoginInfo.setDomainName(request.getServerName());
+            LoginInfo.setServerPort(request.getServerPort());
+        }
+
 
         if (!request.getParameterMap().isEmpty()) {     // если есть параметры
             String status = request.getParameter("status");
@@ -49,6 +60,7 @@ public class BulletinBoardServlet extends HttpServlet {
 
                     //редиректим только если есть параметры и статус ОК
                     response.sendRedirect("/BulletinBoard");
+//                    response.sendRedirect(request.getServletPath() ); //либо в переменную, либо хардкод
                     return;//сюда без параметров уже не попасть
 
                 } else if ("error".equalsIgnoreCase(status)) {
@@ -97,9 +109,9 @@ public class BulletinBoardServlet extends HttpServlet {
 
 
     private void createCookies(HttpServletResponse resp, LoginInfo loginInfo) {
-        String domain = "lfwg.ru";
-//        String domain1 = "localhost";
-
+//        String domain = "lfwg.ru";
+        String domain = LoginInfo.getDomainName();
+//        System.out.println("COOKIES_CREATION");
         // готовим свойство max time для куки (срок годности), которое равно времени до окончания срока действия токена
         long currentTime = System.currentTimeMillis();
         int maxAge = (int) ((loginInfo.getExpires_at().getTime() - currentTime) / 1000);    // оно в секуднах, поэтому делим на 1000

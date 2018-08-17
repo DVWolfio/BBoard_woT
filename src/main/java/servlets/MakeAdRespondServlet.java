@@ -38,7 +38,7 @@ public class MakeAdRespondServlet extends HttpServlet {
         String username = CookiesProcessing.getCookie(req, CookiesProcessing.CookieName.WOT_USERNAME);
         int accountId = Integer.parseInt(CookiesProcessing.getCookie(req, CookiesProcessing.CookieName.WOT_USER_ID));
         String accessToken = CookiesProcessing.getCookie(req, CookiesProcessing.CookieName.WOT_TOKEN);
-        String appId = CookiesProcessing.getApplicationId();
+        String appId = LoginInfo.getApplicationId();
 
         int advertId = Integer.parseInt(req.getParameter("AdId"));
 
