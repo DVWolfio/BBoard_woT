@@ -52,7 +52,8 @@ public class CookiesProcessing {
         WOT_USERNAME,
         WOT_USER_ID,
         WOT_TOKEN,
-        WOT_EXPIRES
+        WOT_EXPIRES,
+        WOT_AUTH_ST
     }
 
 

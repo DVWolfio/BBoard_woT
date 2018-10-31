@@ -172,6 +172,84 @@ body {
     background: url("css/BulletinBoard_background.jpg");
     padding: 20px 27px 28px;
 }
-
 /*------------------------------------------------*/
+
+/*FilterPanelCSS*/
+.js-filters-zone-fakeblock {
+    position: relative;
+    z-index: 10;
+}
+.b-filters-zone {
+    min-width: 1000px;
+    padding-top: 25px;
+    padding-bottom: 21px;
+    position: relative;
+    z-index: 10;
+}
+.b-filters {
+    background-color: #e3e3e3;
+    height: 65px;
+    padding-left: 45px;
+    padding-right: 45px;
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+.b-filters:before {
+    content: "";
+    position: absolute;
+    display: block;
+    z-index: -2;
+    left: 10px;
+    right: 10px;
+    top: 0;
+    height: 10px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1), 0px 0px 20px 0px rgba(0,0,0,0.05);
+    border-radius: 100px 100px 100px 100px / 10px 10px 10px 10px;
+}
+.b-filters-bg {
+    background: url("css/filters-bg.png") no-repeat 50% 0;
+    height: 65px;
+    position: relative;
+    margin: 0 64px;
+}
+.b-filters-bg:before {
+    content: '';
+    background: url("css/filters-bg.png") no-repeat 100% -65px;
+    display: block;
+    height: 65px;
+    left: -193px;
+    position: absolute;
+    top: 0;
+    width: 193px;
+}
+.b-filters-wrapper {
+    height: 65px;
+    position: relative;
+    margin: 0 -64px;
+    z-index: 2;
+}
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+.b-filters-wrapper {
+    height: 65px;
+    position: relative;
+    margin: 0 -64px;
+    z-index: 2;
+}
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+.b-filters-content {
+    clear: both;
+    height: 65px;
+    position: relative;
+    zoom: 1;
+}
+
+
 

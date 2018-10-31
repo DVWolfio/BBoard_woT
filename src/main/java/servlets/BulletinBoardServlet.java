@@ -49,7 +49,7 @@ public class BulletinBoardServlet extends HttpServlet {
                 if (status.equalsIgnoreCase("ok")) {
 
                     LoginInfo loginInfo = new LoginInfo(
-                            request.getParameter("status"),
+                            status, //request.getParameter("status"),
                             request.getParameter("access_token"),
                             new Date(Long.parseLong(request.getParameter("expires_at")) * 1000),
                             Long.parseLong(request.getParameter("account_id")),
@@ -81,9 +81,11 @@ public class BulletinBoardServlet extends HttpServlet {
             String nickname = getCookie(request, CookiesProcessing.CookieName.WOT_USERNAME);
             String accountId = getCookie(request, CookiesProcessing.CookieName.WOT_USER_ID);
             String expiresAt = getCookie(request, CookiesProcessing.CookieName.WOT_EXPIRES);
+            String status = getCookie(request, CookiesProcessing.CookieName.WOT_AUTH_ST);
+            status = status != null ? status : "not_auth"; //статус очень критичное поле для логики, поэтому избегаем null'ов
 
             LoginInfo loginInfo = new LoginInfo();
-            loginInfo.setStatus("ok");
+            loginInfo.setStatus(status);
             loginInfo.setAccess_token(token);
             loginInfo.setNickname(nickname);
 
@@ -120,6 +122,12 @@ public class BulletinBoardServlet extends HttpServlet {
         setCookie(resp,
                 CookiesProcessing.CookieName.WOT_USERNAME,
                 loginInfo.getNickname(),
+                domain,
+                maxAge);
+
+        setCookie(resp,
+                CookiesProcessing.CookieName.WOT_AUTH_ST,
+                loginInfo.getStatus(),
                 domain,
                 maxAge);
 
